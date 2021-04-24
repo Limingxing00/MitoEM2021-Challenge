@@ -5,11 +5,11 @@ More detial can refer to the paper, [Advanced Deep Networks for 3D Mitochondria 
 
 # Citation
 If you find this work or code is helpful in your research, please cite:
->@misc{2104.07961,  
-Author = {Mingxing Li and Chang Chen and Xiaoyu Liu and Wei Huang and Yueyi Zhang and Zhiwei Xiong},  
-Title = {Advanced Deep Networks for 3D Mitochondria Instance Segmentation},  
-Year = {2021},  
-Eprint = {arXiv:2104.07961},  
+>@article{li2021advanced,  
+  title={Advanced Deep Networks for 3D Mitochondria Instance Segmentation},  
+  author={Li, Mingxing and Chen, Chang and Liu, Xiaoyu and Huang, Wei and Zhang, Yueyi and Xiong, Zhiwei},  
+  journal={arXiv preprint arXiv:2104.07961},  
+  year={2021}  
 }  
 
 # TO DO
