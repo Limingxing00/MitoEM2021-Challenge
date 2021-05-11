@@ -15,6 +15,7 @@ More detial can refer to the paper, [Advanced Deep Networks for 3D Mitochondria 
 ![framework](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/figure/framework.png)
 
 # Segmentation results
+**We publish the validation results of rat and human at** [Google Drive.](https://drive.google.com/file/d/17LvjxGKtZb88PCWMPx8XyFCEtwl7DZUf/view?usp=sharing)  
 
 ![segmentation results](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/figure/seg_results.png)
 
