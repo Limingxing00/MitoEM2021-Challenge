@@ -1,7 +1,7 @@
 # MitoEM2021-Challenge
 Here is the official code of the 1st team "VIDAR" on the [MitoEM Challenge](https://mitoem.grand-challenge.org/evaluation/challenge/leaderboard/).
 
-More detial can refer to the paper, [Advanced Deep Networks for 3D Mitochondria Instance Segmentation](https://arxiv.org/abs/2104.07961).
+More detial can refer to the paper, [Advanced Deep Networks for 3D Mitochondria Instance Segmentation](https://arxiv.org/abs/2104.07961) and the [report](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/MitoEM2021_Mingxing.pptx) on the MitoEM challenge.
 
 🏆 SOTA for 3D Instance Segmentation on MitoEM. Check out [Papers With Code](https://paperswithcode.com/sota/3d-instance-segmentation-on-mitoem) for the 3D Instance Segmentation on MitoEM and more details.
 
