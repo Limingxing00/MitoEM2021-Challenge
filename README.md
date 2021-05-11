@@ -16,7 +16,11 @@ More detial can refer to the paper, [Advanced Deep Networks for 3D Mitochondria 
 ![framework](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/figure/framework.png)
 
 # Installation
-You may refer to the [installation](https://github.com/zudi-lin/pytorch_connectomics#installation).
+You may refer to the [installation](https://github.com/zudi-lin/pytorch_connectomics#installation).  
+The additional packages can be installed as: 
+``` python
+pip install torchsummary waterz malis
+```
 
 # Training stage
 Take rat for example, in ```rat/configs/MitoEM/```, you need to modify "im_train_rat.json", "mito_train_rat.json" for training sample and "im_val_rat.json" for validation sample and "im_test_human.json", "im_test_rat.json" for test sample. Note the validation GT file is saved as "h5", you can use the [code](https://github.com/donglaiw/MitoEM-challenge/tree/main/aux) to convert the image slices into an H5 file. Because the challenge calculates the "h5" input for evaluation.  
