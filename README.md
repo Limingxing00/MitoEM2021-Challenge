@@ -1,7 +1,22 @@
 # MitoEM2021-Challenge
-Here is the official code of team "VIDAR" on the [MitoEM Challenge](https://mitoem.grand-challenge.org/).
+Here is the official code of the 1st team "VIDAR" on the [MitoEM Challenge](https://mitoem.grand-challenge.org/evaluation/challenge/leaderboard/).
 
 More detial can refer to the paper, [Advanced Deep Networks for 3D Mitochondria Instance Segmentation](https://arxiv.org/abs/2104.07961).
+
+🏆 SOTA for 3D Instance Segmentation on MitoEM. Check out [Papers With Code](https://paperswithcode.com/sota/3d-instance-segmentation-on-mitoem) for the 3D Instance Segmentation on MitoEM and more details.
+
+# Dataset
+|          | Validation set | Validation set | Test set       |
+|----------|----------------|----------------|----------------|
+| MitoEM-R | 400×4096 ×4096 | 100×4096 ×4096 | 500×4096 ×4096 |
+| MitoEM-H | 400×4096 ×4096 | 100×4096 ×4096 | 500×4096 ×4096 |
+
+# Framework
+![framework](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/figure/framework.png)
+
+# Segmentation results
+
+![segmentation results](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/figure/seg_results.png)
 
 # Citation
 If you find this work or code is helpful in your research, please cite:
@@ -13,8 +28,8 @@ If you find this work or code is helpful in your research, please cite:
 }  
 
 # TO DO
-- [ ] upload code
-- [ ] upload pre-trained models
-- [ ] Readme
-- [ ] upload report on the mitoem-isbi2021-challenge
+- [x] upload code
+- [x] upload pre-trained models
+- [x] Readme
+- [x] upload report on the mitoem-isbi2021-challenge
 - [ ] more supplementary materials
