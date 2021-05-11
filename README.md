@@ -78,13 +78,18 @@ INFERENCE:
 Run the ```main.py``` to start and the results will be saved in ```rat/outputs/inference_output```
 ```shell
 cd rat &&\
-python scripts/main.py --config-file configs/MitoEM/MitoEM-R-BC.yaml --checkpoint xxxx
+python scripts/main.py --config-file configs/MitoEM/MitoEM-R-BC.yaml 
+```
+If you have checkpoint file:  
+```shell
+cd rat &&\
+python scripts/main.py --config-file configs/MitoEM/MitoEM-R-BC.yaml --checkpoint xxx
 ```
 
-
 # Validation stage
-In our experiment, the validation stage needs ```45 GB``` of memory, which is mainly due to post-processing for the seed map of size ```100 × 4096 × 4096```.
+By default, AP-75 is calculated on the validation set every certain epoch during the training process. In our experiment, the validation stage needs almost ```45 GB``` of memory, which is mainly due to post-processing for the seed map of size ```100 × 4096 × 4096```.
 
+And you can refer ```rat/connectomics/utils/evaluation/iteration_eval.py``` to call the inference and evaluation.
 # Segmentation results
 
 
