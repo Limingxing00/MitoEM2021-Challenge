@@ -75,7 +75,11 @@ INFERENCE:
   STRIDE: [16, 128, 128] # [16, 128, 128]
   SAMPLES_PER_BATCH: 48
 ```
-
+Run the ```main.py``` to start and the results will be saved in ```rat/outputs/inference_output```
+```shell
+cd rat &&\
+python scripts/main.py --config-file configs/MitoEM/MitoEM-R-BC.yaml --checkpoint xxxx
+```
 
 
 # Validation stage
