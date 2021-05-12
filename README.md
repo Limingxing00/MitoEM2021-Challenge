@@ -96,6 +96,12 @@ By default, AP-75 is calculated on the validation set every certain epoch during
 And you can refer ```rat/connectomics/utils/evaluation/iteration_eval.py``` to call the inference and evaluation.
 # Segmentation results
 
+|          | AP-75 (Validation set) | 
+|:-:|:-:|
+| Res-UNet-R+MT | 0.917 | 
+| Res-UNet-H+MT | 0.828 | 
+
+**We publish the validation results of our model on the rat and the human at** [Google Drive.](https://drive.google.com/file/d/17LvjxGKtZb88PCWMPx8XyFCEtwl7DZUf/view?usp=sharing)  
 
 ![segmentation results](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/figure/seg_results.png)
 
