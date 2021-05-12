@@ -1,0 +1,53 @@
+# For binary mask & instance contour prediction.
+# All other configurations are set by default. If you want to add new config options,
+# please modify ../connectomics/config/config.py
+# 30x8x8 nm in (z,y,x), 1000x4096x4096 voxel
+SYSTEM:
+  NUM_GPUS: 2
+  NUM_CPUS: 8
+MODEL:
+  ARCHITECTURE: 'unet_residual_3d' # 'unet_residual_3d' for res-unet-r  and 'rsunet' for res-unet-h
+  FILTERS: [28, 36, 48, 64, 80]
+  INPUT_SIZE: [36, 320, 320]
+  OUTPUT_SIZE: [36, 320, 320]
+  IN_PLANES: 1
+  OUT_PLANES: 2
+  LOSS_OPTION: [['DiceLoss', 'WeightedBCE'], ['DiceLoss', 'WeightedBCE']]
+  LOSS_WEIGHT: [[0, 1], [0, 1]]
+#  LOSS_OPTION: [['WeightedBCE'], ['WeightedBCE']]
+#  LOSS_WEIGHT: [[1], [1]]
+  TARGET_OPT: ['0','4-2-1'] # Multi-task learning: binary mask, instance segmentation
+  WEIGHT_OPT: [['1'],['1']]
+DATASET:
+  IMAGE_NAME: 'configs/MitoEM/im_train_rat.json'
+  LABEL_NAME: 'configs/MitoEM/mito_train_rat.json'
+  INPUT_PATH: '/braindat/lab/limx/MitoEM2021/CODE/HUMAN/rsunet_retrain_297000_v2/' # work container
+  # inference: save model
+  INFERENCE_PATH: '/braindat/lab/limx/MitoEM2021/CODE/HUMAN/rsunet_retrain_297000_v2/'
+  OUTPUT_PATH: 'outputs/dataset_output'
+  PAD_SIZE: [0, 0, 0] # [16, 128, 128]  # Mirror padding of big chunk
+  DO_CHUNK_TITLE: 1 # json file reading
+  DATA_CHUNK_NUM: [8, 2, 2] # [8, 2, 2] # block number of each axis.
+  DATA_CHUNK_ITER: 2500 # sample times of per chunk
+  LABEL_EROSION: 1
+  USE_LABEL_SMOOTH: False
+  LABEL_SMOOTH: 0.1
+
+SOLVER:
+  LR_SCHEDULER_NAME: "WarmupMultiStepLR"
+  BASE_LR: 1e-04
+  ITERATION_STEP: 1 # How many iterations return loss once
+  ITERATION_SAVE: 1500  # save model
+  ITERATION_TOTAL: 300000 # total iteration
+  SAMPLES_PER_BATCH: 2 #
+INFERENCE:
+  INPUT_SIZE: [32, 256, 256]
+  OUTPUT_SIZE: [32, 256, 256]
+  IMAGE_NAME: 'configs/MitoEM/im_val_rat.json'
+  OUTPUT_PATH: 'outputs/inference_output'
+  OUTPUT_NAME: 'result.h5'
+  PAD_SIZE:  [16, 128, 128]
+  AUG_MODE: 'mean'
+  AUG_NUM: 0
+  STRIDE: [16, 128, 128] # [16, 128, 128]
+  SAMPLES_PER_BATCH: 48
