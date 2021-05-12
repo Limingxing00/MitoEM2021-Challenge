@@ -91,7 +91,9 @@ python scripts/main.py --config-file configs/MitoEM/MitoEM-R-BC.yaml --checkpoin
 ```
 
 # Validation stage
-By default, AP-75 is calculated on the validation set every certain epoch during the training process. In our experiment, the validation stage needs almost ```45 GB``` of memory, which is mainly due to post-processing for the seed map of size ```100 × 4096 × 4096```.
+By default, AP-75 is calculated on the validation set every certain epoch during the training process. In our experiment, the validation stage needs almost ```45 GB``` of memory, which is mainly due to post-processing for the seed map of size ```100 × 4096 × 4096```.  
+
+Similarly, you can refer to [eval_iter.sh](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/eval_iter.sh) to quickly run inference and evaluation programs.
 
 And you can refer ```rat/connectomics/utils/evaluation/iteration_eval.py``` to call the inference and evaluation.
 # Segmentation results
