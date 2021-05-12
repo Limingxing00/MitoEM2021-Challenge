@@ -117,6 +117,13 @@ Download the pretrained models [here](https://github.com/Limingxing00/MitoEM2021
 
 Please change ```ARCHITECTURE``` in [config file](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/configs/MitoEM/MitoEM-R-BC.yaml).
 
+# Acknowledgement
+This project is built upon numerous previous projects. Especially, we'd like to thank the contributors of the following github repositories:  
+- [pyGreenTea](https://github.com/naibaf7/PyGreentea): HHMI Janelia FlyEM Team
+- [DataProvider](https://github.com/torms3/DataProvider): Princeton SeungLab
+- [Detectron2](https://github.com/facebookresearch/detectron2): Facebook AI Reserach
+- [pytorch_connectomics](https://github.com/zudi-lin/pytorch_connectomics): Harvard University
+
 # Citation
 If you find this work or code is helpful in your research, please cite:
 >@article{li2021advanced,  
