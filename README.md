@@ -107,6 +107,16 @@ And you can refer ```rat/connectomics/utils/evaluation/iteration_eval.py``` to c
 
 ![segmentation results](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/figure/seg_results.png)
 
+# Model Zoo
+Download the pretrained models [here](https://github.com/Limingxing00/MitoEM2021-Challenge/tree/main/outputs/dataset_output).    
+|   Model       | Dataset | 
+|:-:|:-:|
+| checkpoint_085000.pth.tar | Res-UNet-R | 
+| checkpoint_297000.pth.tar | Res-UNet-H | 
+
+
+Please change ```ARCHITECTURE``` in [config file](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/configs/MitoEM/MitoEM-R-BC.yaml).
+
 # Citation
 If you find this work or code is helpful in your research, please cite:
 >@article{li2021advanced,  
