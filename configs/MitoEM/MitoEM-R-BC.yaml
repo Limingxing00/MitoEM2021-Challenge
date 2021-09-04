@@ -38,7 +38,7 @@ SOLVER:
   BASE_LR: 1e-04
   ITERATION_STEP: 1 # How many iterations return loss once
   ITERATION_SAVE: 1500  # save model
-  ITERATION_TOTAL: 300000 # total iteration
+  ITERATION_TOTAL: 200000 # total iteration
   SAMPLES_PER_BATCH: 2 #
 INFERENCE:
   INPUT_SIZE: [32, 256, 256]
