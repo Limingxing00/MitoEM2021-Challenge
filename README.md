@@ -31,6 +31,12 @@ pip install torchsummary waterz malis
 # Training stage
 Take rat for example, in ```rat/configs/MitoEM/```, you need to modify "im_train_rat.json", "mito_train_rat.json" for training sample and "im_val_rat.json" for validation sample and "im_test_human.json", "im_test_rat.json" for test sample. Note the validation GT file is saved as "h5", you can use the [code](https://github.com/donglaiw/MitoEM-challenge/tree/main/aux) to convert the image slices into an H5 file. Because the challenge calculates the "h5" input for evaluation.  
 
+# GPU memory friendly
+We train the network for a certain interval by default, and use [cal_infer](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/dddb388a4aab004fa577058b53c39266e304fc03/connectomics/engine/trainer.py#L423) to inference and evaluate the predicted results.
+If you have enough resources, you can use [this function](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/dddb388a4aab004fa577058b53c39266e304fc03/connectomics/engine/trainer.py#L423) during training. Otherwise, please use offline testing.
+ 
+ 
+
 # Training setting
 Take rat for example, you can change "rat/configs/MitoEM/MitoEM-R-BC.yaml". Specificly, you may change the ```INPUT_PATH``` and ```INFERENCE_PATH```.
 
@@ -101,7 +107,8 @@ By default, AP-75 is calculated on the validation set every certain epoch during
 
 Similarly, you can refer to [eval_iter.sh](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/eval_iter.sh) to quickly run inference and evaluation programs.
 
-And you can refer ```rat/connectomics/utils/evaluation/iteration_eval.py``` to call the inference and evaluation.
+And you can refer ```rat/connectomics/utils/evaluation/iteration_eval.py``` to call the inference and evaluation. Please check it and confirm it works.
+
 # Segmentation results
 
 |          | AP-75 (Validation set) | 
