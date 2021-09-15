@@ -4,9 +4,26 @@
 # @FileName: iteration_eval.py
 # @Software: PyCharm
 
+"""
+This script looks very complicated, but in fact most of them are default parameters.
+There are some important parameters:
+SYSTEM.NUM_GPUS
+SYSTEM.NUM_CPUS
+INFERENCE.INPUT_SIZE: Although the training size is only 32 × 256 × 256, we have empirically found that D=100 is better.
+                      (Thanks to the fully convolutional network, the input size is variable)
+INFERENCE.STRIDE
+INFERENCE.PAD_SIZE
+INFERENCE.AUG_NUM: 0 is faster
+"""
+
 import subprocess
 
 def cal_infer(root_dir, model_id):
+    """
+    If you have enough resources, you can use this function during training. 
+    Confirm that this line is open. 
+    https://github.com/Limingxing00/MitoEM2021-Challenge/blob/dddb388a4aab004fa577058b53c39266e304fc03/connectomics/engine/trainer.py#L423
+    """
 
     command = "/opt/conda/bin/python {}scripts/main.py --config-file\
                 {}configs/MitoEM/MitoEM-R-BC.yaml\
@@ -53,23 +70,22 @@ def cal_infer(root_dir, model_id):
 
 
 if __name__=="__main__":
-
-    # pdb.set_trace()
-
-    # start_epoch, end_epoch = 5000, 200000
+    """
+    Please note to change the gt file!
+    My gt file is in:
+    /braindat/lab/limx/MitoEM2021/MitoEM-H/MitoEM-H/human_val_gt.h5
+    """
+    # change the "start_epoch" and "end_epoch"  to infer "root_dir/model"
     start_epoch, end_epoch = 297000, 297000
     step_epoch = 2500
     model_id = range(start_epoch, end_epoch+step_epoch, step_epoch)
 
-    # _C.SYSTEM.ROOTDIR = "/braindat/lab/limx/MitoEM2021/CODE/Author/baseline/pytorch_connectomics-master" # root_dir
-    # commad 中的路径
-
     root_dir = "/braindat/lab/limx/MitoEM2021/CODE/HUMAN/rsunet_retrain_297000_v2/"
 
 
-    # validation 输出h5
-    # test 不输出h5
-    for i in range(len(model_id)): # 不能有空格
+    # validation stage: output h5
+    # test stage: don't output h5
+    for i in range(len(model_id)):  
         command = "/opt/conda/bin/python {}scripts/main.py --config-file\
                 {}configs/MitoEM/MitoEM-R-BC.yaml\
                 --inference\
