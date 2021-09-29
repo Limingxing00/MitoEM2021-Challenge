@@ -26,7 +26,7 @@ pip install torchsummary waterz malis
 |          | source | 
 |:-:|:-:|
 | Ali Cloud | registry.cn-hangzhou.aliyuncs.com/ustc-team/cuda_9.0_pytorch1.1:v2 | 
-| Dockerhub | dockerlimx/cuda_9.0_pytorch1.1:v2 | 
+| Dockerhub |  | 
 
 # Training stage
 Take rat for example, in ```rat/configs/MitoEM/```, you need to modify "im_train_rat.json", "mito_train_rat.json" for training sample and "im_val_rat.json" for validation sample and "im_test_human.json", "im_test_rat.json" for test sample. Note the validation GT file is saved as "h5", you can use the [code](https://github.com/donglaiw/MitoEM-challenge/tree/main/aux) to convert the image slices into an H5 file. Because the challenge calculates the "h5" input for evaluation.  
@@ -60,9 +60,9 @@ MODEL:
 DATASET:
   IMAGE_NAME: 'configs/MitoEM/im_train_rat.json'
   LABEL_NAME: 'configs/MitoEM/mito_train_rat.json'
-  INPUT_PATH: '/braindat/lab/limx/MitoEM2021/CODE/HUMAN/rsunet_retrain_297000_v2/' # work container
+  INPUT_PATH: '' # work container
   # inference: save model
-  INFERENCE_PATH: '/braindat/lab/limx/MitoEM2021/CODE/HUMAN/rsunet_retrain_297000_v2/'
+  INFERENCE_PATH: ''
   OUTPUT_PATH: 'outputs/dataset_output'
   PAD_SIZE: [0, 0, 0] # [16, 128, 128]  # Mirror padding of big chunk
   DO_CHUNK_TITLE: 1 # json file reading
