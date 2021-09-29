@@ -138,13 +138,7 @@ This project is built upon numerous previous projects. Especially, we'd like to 
 - [pytorch_connectomics](https://github.com/zudi-lin/pytorch_connectomics): Harvard University
 
 # Citation
-If you find this work or code is helpful in your research, please cite:
->@article{li2021advanced,  
-  title={Advanced Deep Networks for 3D Mitochondria Instance Segmentation},  
-  author={Li, Mingxing and Chen, Chang and Liu, Xiaoyu and Huang, Wei and Zhang, Yueyi and Xiong, Zhiwei},  
-  journal={arXiv preprint arXiv:2104.07961},  
-  year={2021}  
-}  
+
 
 # TO DO
 - [x] upload code
