@@ -26,7 +26,7 @@ pip install torchsummary waterz malis
 |          | source | 
 |:-:|:-:|
 | Ali Cloud | registry.cn-hangzhou.aliyuncs.com/ustc-team/cuda_9.0_pytorch1.1:v2 | 
-| Dockerhub |  | 
+| Dockerhub | anonymous | 
 
 # Training stage
 Take rat for example, in ```rat/configs/MitoEM/```, you need to modify "im_train_rat.json", "mito_train_rat.json" for training sample and "im_val_rat.json" for validation sample and "im_test_human.json", "im_test_rat.json" for test sample. Note the validation GT file is saved as "h5", you can use the [code](https://github.com/donglaiw/MitoEM-challenge/tree/main/aux) to convert the image slices into an H5 file. Because the challenge calculates the "h5" input for evaluation.  
