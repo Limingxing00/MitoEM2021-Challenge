@@ -238,8 +238,9 @@ class Trainer(object):
         instance_boundary = result[0][1, ...]
 
 
-        out_name = cfg.SYSTEM.ROOTDIR+cfg.INFERENCE.OUTPUT_PATH+"/"+"{}_out_{}_{}_{}_aug_{}_pad_{}"\
+        out_name = cfg.SYSTEM.ROOTDIR+cfg.INFERENCE.OUTPUT_PATH+"/"+"{}_out_{}_{}_{}_stride_{}_{}_{}_aug_{}_pad_{}"\
                     .format(model_name, cfg.INFERENCE.OUTPUT_SIZE[0], cfg.INFERENCE.OUTPUT_SIZE[1], cfg.INFERENCE.OUTPUT_SIZE[2], \
+                            cfg.INFERENCE.STRIDE[0], cfg.INFERENCE.STRIDE[1], cfg.INFERENCE.STRIDE[2], \
                             cfg.INFERENCE.AUG_NUM, cfg.INFERENCE.PAD_SIZE[0])
 
         # out = sitk.GetImageFromArray(semantic_mask)
