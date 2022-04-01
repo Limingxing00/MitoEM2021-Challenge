@@ -28,6 +28,34 @@ pip install torchsummary waterz malis
 | Ali Cloud | registry.cn-hangzhou.aliyuncs.com/ustc-team/cuda_9.0_pytorch1.1:v2 | 
 | Dockerhub | dockerlimx/cuda_9.0_pytorch1.1:v2 | 
 
+# Quick start
+ - In `connectomics/utils/evaluation/iteration_eval.py`, please change `root-path` and `gt-path`. 
+ - In `configs/MitoEM/MitoEM-R-BC.yaml`, change your path for `IMAGE_NAME`, `LABEL_NAME`, `INPUT_PATH`(note "/"), `INFERENCE_PATH`.
+
+Then you can refer to `connectomics/utils/evaluation/iteration_eval.py`.
+```python
+    parser = argparse.ArgumentParser(description="Model Inference.")
+    parser.add_argument('--model', type=int, default=297000, help='index number of the model')
+    parser.add_argument('--root-path', type=str, default="/braindat/lab/limx/MitoEM2021/CODE/HUMAN/rsunet_retrain_297000_v2_biyelunwen", help='root dir path')
+    parser.add_argument('--gt-path', type=str, default="/braindat/lab/limx/MitoEM2021/MitoEM-H/MitoEM-H/human_val_gt.h5", help='root dir path')
+    parser.add_argument('--ngpus', type=int, default=4, help='gpu number')
+    parser.add_argument('--ncpus', type=int, default=8, help='cpu number')
+    parser.add_argument('--bs', type=int, default=8, help='total batch size')
+    parser.add_argument('--naug', type=int, default=4, help='test time augmentation, 4 or 16')
+    parser.add_argument('--stride', nargs='+', default=[1,256,256], type=int, help='basic stride of the sliding window')
+    parser.add_argument('--window-size', nargs='+', default=[100,256,256], type=int, help='basic size of the sliding window')
+```  
+
+For 4 gpus. We show a protocol for infering MitoEM-H. Firstly, you should change your 
+```python
+cd rootdir 
+python connectomics/utils/evaluation/iteration_eval.py  \
+    --bs 8 \
+    --naug 0 \
+    --stride 1 128 128
+```
+
+
 # Training stage
 Take rat for example, in ```rat/configs/MitoEM/```, you need to modify "im_train_rat.json", "mito_train_rat.json" for training sample and "im_val_rat.json" for validation sample and "im_test_human.json", "im_test_rat.json" for test sample. Note the validation GT file is saved as "h5", you can use the [code](https://github.com/donglaiw/MitoEM-challenge/tree/main/aux) to convert the image slices into an H5 file. Because the challenge calculates the "h5" input for evaluation.  
 
@@ -35,7 +63,7 @@ Take rat for example, in ```rat/configs/MitoEM/```, you need to modify "im_train
 We train the network for a certain interval by default, and use [cal_infer](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/dddb388a4aab004fa577058b53c39266e304fc03/connectomics/engine/trainer.py#L423) to inference and evaluate the predicted results.
 If you have enough resources, you can use [this function](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/dddb388a4aab004fa577058b53c39266e304fc03/connectomics/engine/trainer.py#L423) during training. Otherwise, please use offline testing.
  
- 
+
 
 # Training setting
 Take rat for example, you can change "rat/configs/MitoEM/MitoEM-R-BC.yaml". Specificly, you may change the ```INPUT_PATH``` and ```INFERENCE_PATH```.
