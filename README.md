@@ -55,7 +55,6 @@ python connectomics/utils/evaluation/iteration_eval.py  \
     --stride 1 128 128
 ```
 
-
 # Training stage
 Take rat for example, in ```rat/configs/MitoEM/```, you need to modify "im_train_rat.json", "mito_train_rat.json" for training sample and "im_val_rat.json" for validation sample and "im_test_human.json", "im_test_rat.json" for test sample. Note the validation GT file is saved as "h5", you can use the [code](https://github.com/donglaiw/MitoEM-challenge/tree/main/aux) to convert the image slices into an H5 file. Because the challenge calculates the "h5" input for evaluation.  
 
@@ -154,9 +153,18 @@ Download the pretrained models [here](https://github.com/Limingxing00/MitoEM2021
 |:-:|:-:|
 | checkpoint_085000.pth.tar | Res-UNet-R | 
 | checkpoint_297000.pth.tar | Res-UNet-H | 
+Please change ```ARCHITECTURE``` in [config file](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/configs/MitoEM/MitoEM-R-BC.yaml).  
 
+**_News_**:We publish two models that outperform the report of our paper.
 
-Please change ```ARCHITECTURE``` in [config file](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/configs/MitoEM/MitoEM-R-BC.yaml).
+Use this parameter and change ```ARCHITECTURE``` in [config file](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/main/configs/MitoEM/MitoEM-R-BC.yaml).  
+```python
+cd rootdir 
+python connectomics/utils/evaluation/iteration_eval.py  \
+    --naug 0 \
+    --stride 1 128 128
+```
+For human sample, please change `thres2` in this [line](https://github.com/Limingxing00/MitoEM2021-Challenge/blob/a876c366c6795f1ef97e0be9f071a3ee3ec54b29/connectomics/utils/processing/process_mito.py#L128) from 0.8 to 0.75.
 
 # Acknowledgement
 This project is built upon numerous previous projects. Especially, we'd like to thank the contributors of the following github repositories:  
@@ -179,4 +187,4 @@ If you find this work or code is helpful in your research, please cite:
 - [x] upload pre-trained models
 - [x] Readme
 - [x] upload report on the mitoem-isbi2021-challenge
-- [ ] more supplementary materials
+- [x] more supplementary materials
